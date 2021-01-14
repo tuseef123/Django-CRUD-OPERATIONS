@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block record %}
+
+<div class="parent">
+<table class="table">
+  <tr>
+    <th>p_id</th>
+    <th>p_name</th>
+    <th>catagory</th>
+    <th>quantity</th>
+    <th>quality</th>
+    <th>room</th>
+    <th>Actions</th>
+  </tr>
+    {% for value in data %}
+  <tr>
+    <td>{{value.id}}</td>
+    <td>{{value.p_name}}</td>
+    <td>{{value.catagory}}</td>
+     <td>{{value.quantity}}</td>
+     <td>{{value.quality}}</td>
+     <td>{{value.room}}</td>
+     <td><a class="btn btn-primary" href="{% url 'edit' value.id %}">Edit</a>|<a class="btn btn-danger" href="#">Delete</a></td>
+  </tr>
+  {% endfor %}
+  </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block record %}
+<h1>record your data</h1>
+<form action="" method="POST" class="form">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label  class="form-label">enter name</label>
+    <input type="text" class="form-control"  name="p_name" id="p_name">
+  </div>
+  <div class="mb-3">
+    <label for="catagory" >catagory</label>
+    <input type="text" class="form-control" id="catagory" name="catagory">
+  </div>
+     <div class="mb-3">
+    <label for="quantity" class="form-label">quantity</label>
+    <input type="number" class="form-control" id="quantity" name="quantity">
+  </div>
+     <div class="mb-3">
+    <label for="quality" class="form-label">quality</label>
+    <input type="text" class="form-control" id="quality" name="quality">
+  </div>
+     <div class="mb-3">
+    <label for="roomno" class="form-label">room no</label>
+    <input type="number" class="form-control" id="roomno" name="room">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

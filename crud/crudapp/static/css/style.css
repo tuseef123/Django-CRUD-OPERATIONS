@@ -1,0 +1,12 @@
+*{padding:0;margin:0;box-sizing:border-box}
+.parent{width:100vw;height:100vh;background-image:linear-gradient(170deg,green,grey,red,yellow);display:flex;justify-content:center;justify-items:center;padding-top:45px;}
+.table{width:auto;height:auto;border:2px solid green;border-collapse:collapse;width:80vw;}
+table tr th{font-size:25px;font-style:italic;}
+th,tr,td{border:2px solid yellow;}
+tr:nth-child(even){color:black;}
+.card container{background:black;}
+.my{width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;justify-itms:center;padding-top:250px;margin:32px;
+background-image:linear-gradient(to right,red,yellow,blue);}
+.image{width:60vw;height30vh;background:red;}
+a:hover{color:blue;background:black;}
+.form{padding-top:23px;width:100vw;height:100vh;background-color:rgba(122,232,34,0.8);}
