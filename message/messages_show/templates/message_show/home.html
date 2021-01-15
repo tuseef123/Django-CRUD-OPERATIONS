@@ -1,0 +1,58 @@
+{% extends 'message_show/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="mt-5" >
+        <h2>Twitter Record:</h2>
+        <table class="table">
+            <thead class="thead-dark" style="color:white; background-color: darkslategray;">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">TwitterHandle</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for profile in profiles%}
+                    <tr>
+                        <th scope="row">{{profile.id}}</th>
+                        <td>{{profile.firstname}}</td>
+                        <td>{{profile.lastname }}</td>
+                        <td>@{{profile.handle}}</td>
+                        <td><a class ='btn btn-info' href="{% url 'edit' profile.id %}">Edit</a>|<a class ='btn btn-danger' href="{% url 'delete' profile.id %}">Delete</a></td>
+                        
+                    </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          
+        
+    </div>
+    
+{% endblock content %}
+
+{% block sign %}
+      <div class="mt-5">
+        <h2>Add Data Here:</h2>
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+              {{message}}
+            </div>
+          {% endfor %}
+        {% endif %}
+        <form method="POST">
+          {% csrf_token %}
+            {{form|crispy}}
+            <button class="btn btn-outline-primary mt-2" type="submit">Add Data</button>
+        </form>
+      </div>            
+{% endblock sign %}
+<script>
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 2000);
+</script>
